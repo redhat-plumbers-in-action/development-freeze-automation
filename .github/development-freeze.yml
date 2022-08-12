@@ -1,0 +1,21 @@
+# syntax - https://github.com/redhat-plumbers-in-action/devel-freezer#policy
+---
+
+policy:
+  - tags: ['alpha', 'beta']
+    feedback:
+      freezed-state: |
+        We are currently in ...
+        Please ...
+      un-freezed-state: |
+        We are no longer in ...
+
+  # Support for regular expressions
+  - tags: ['^\S*-rc\d$']
+    feedback:
+      freezed-state: |
+        We are currently in development freeze.
+        Please ...
+      un-freezed-state: |
+        We had successfully released new major release.
+        We are no longer in development freeze.
