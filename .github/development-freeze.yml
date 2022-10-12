@@ -2,14 +2,6 @@
 ---
 
 policy:
-  - tags: ['alpha', 'beta']
-    feedback:
-      frozen-state: |
-        🥶 We are currently in ...
-        🙏 Please ...
-      unfreeze-state: |
-        😎 We are no longer in ...
-
   # Suport for regular expressions
   - tags: ['^\S*-rc\d$']
     feedback:
