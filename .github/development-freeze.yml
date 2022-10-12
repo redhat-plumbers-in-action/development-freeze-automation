@@ -4,18 +4,18 @@
 policy:
   - tags: ['alpha', 'beta']
     feedback:
-      freezed-state: |
-        We are currently in ...
-        Please ...
-      un-freezed-state: |
-        We are no longer in ...
+      frozen-state: |
+        🥶 We are currently in ...
+        🙏 Please ...
+      unfreeze-state: |
+        😎 We are no longer in ...
 
-  # Support for regular expressions
+  # Suport for regular expressions
   - tags: ['^\S*-rc\d$']
     feedback:
-      freezed-state: |
-        We are currently in development freeze.
+      frozen-state: |
+        We are currently in a development freeze phase.
         Please ...
-      un-freezed-state: |
-        We had successfully released new major release.
-        We are no longer in development freeze.
+      unfreeze-state: |
+        We had successfully released a new major release.
+        We are no longer in a development freeze phase.
