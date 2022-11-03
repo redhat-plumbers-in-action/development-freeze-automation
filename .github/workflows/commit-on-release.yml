@@ -1,0 +1,30 @@
+---
+
+name: Create commit on release event
+on:
+  push:
+    tags: ['*']
+
+permissions:
+  contents: read
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Update CHANGELOG
+        shell: bash
+        run: echo ${{github.ref_name}} >> CHANGELOG
+
+      - name: Create commit with CHAnGELOG changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update `CHANGELOG` - `${{github.ref_name}}`
+
+...
