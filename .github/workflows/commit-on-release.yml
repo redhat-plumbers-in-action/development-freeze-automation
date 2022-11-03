@@ -3,7 +3,8 @@
 name: Create commit on release event
 on:
   push:
-    tags: ['*']
+    branches: [ main ]
+    tags: [ '*' ]
 
 permissions:
   contents: read
@@ -17,6 +18,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
 
       - name: Update CHANGELOG
         shell: bash
@@ -25,6 +28,8 @@ jobs:
       - name: Create commit with CHAnGELOG changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
+          branch: main
           commit_message: Update `CHANGELOG` - `${{github.ref_name}}`
+          add_options: '-u'
 
 ...
