@@ -26,6 +26,7 @@ jobs:
     
     permissions:
       issues: write
+      pull-requests: write
 
     steps:
       - name: Download Pull Request Metadata artifact
