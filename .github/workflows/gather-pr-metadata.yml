@@ -6,10 +6,6 @@ on:
   pull_request:
     branches: [ main ]
 
-env:
-  PULL_REQUEST_METADATA_DIR: pull_request
-  PULL_REQUEST_METADATA_FILE: metadata
-
 permissions:
   contents: read
 
@@ -17,22 +13,24 @@ jobs:
   gather-metadata:
     runs-on: ubuntu-latest
 
+    permissions:
+      # only required for workflows in private repositories
+      actions: read
+      contents: read
+
     steps:
       - name: Repository checkout
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
-      - name: Store PR number in file
-        run: |
-          mkdir -p ./${{ env.PULL_REQUEST_METADATA_DIR }}
-          echo ${{ github.event.number }} > ./${{ env.PULL_REQUEST_METADATA_DIR }}/${{ env.PULL_REQUEST_METADATA_FILE }}
+      - id: Metadata
+        name: Gather Pull Request Metadata
+        uses: redhat-plumbers-in-action/gather-pull-request-metadata@v1
 
       - name: Upload Pull Request Metadata artifact
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ env.PULL_REQUEST_METADATA_FILE }}
-          path: ${{ env.PULL_REQUEST_METADATA_DIR }}
+          name: Pull Request Metadata
+          path: ${{ steps.Metadata.outputs.metadata-file }}
           retention-days: 1
 
 ...
