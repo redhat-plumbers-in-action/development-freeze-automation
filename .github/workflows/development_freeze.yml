@@ -1,5 +1,4 @@
 # doc: https://github.com/redhat-plumbers-in-action/devel-freezer#readme
-
 ---
 
 name: Development Freeze
@@ -19,9 +18,9 @@ jobs:
       github.event.workflow_run.event == 'pull_request' &&
       github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
-    
+
     permissions:
-      issues: write
+      # Needed for commenting on Pull Requests
       pull-requests: write
 
     steps:
@@ -41,5 +40,3 @@ jobs:
         with:
           pr-number: ${{ fromJSON(steps.Artifact.outputs.pr-metadata-json).number }}
           token: ${{ secrets.GITHUB_TOKEN }}
-
-...
