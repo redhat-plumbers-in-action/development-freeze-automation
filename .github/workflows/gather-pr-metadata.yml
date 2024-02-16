@@ -1,10 +1,8 @@
----
-
 name: Gather Pull Request Metadata
-
 on:
   pull_request:
     branches: [ main ]
+    types: [ opened, reopened, synchronize ]
 
 permissions:
   contents: read
@@ -32,5 +30,3 @@ jobs:
           name: Pull Request Metadata
           path: ${{ steps.Metadata.outputs.metadata-file }}
           retention-days: 1
-
-...
