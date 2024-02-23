@@ -14,8 +14,10 @@ policy:
   - tags: ['^\S*-rc\d$']
     feedback:
       frozen-state: |
-        We are currently in a development freeze phase.
-        Please ...
+        > [!IMPORTANT]
+        > We are currently in a development freeze phase.
+        > Please ...
       unfreeze-state: |
-        We had successfully released a new major release.
-        We are no longer in a development freeze phase.
+        > [!NOTE]
+        > We had successfully released a new major release.
+        > We are no longer in a development freeze phase.
