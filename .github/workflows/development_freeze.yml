@@ -39,4 +39,5 @@ jobs:
         uses: redhat-plumbers-in-action/devel-freezer@main
         with:
           pr-number: ${{ fromJSON(steps.Artifact.outputs.pr-metadata-json).number }}
+          delay: 20
           token: ${{ secrets.GITHUB_TOKEN }}
