@@ -11,7 +11,7 @@ policy:
         😎 We are no longer in ...
 
   # Suport for regular expressions
-  - tags: ['^v\d*-rc\d$']
+  - tags: ['^v\d*-rc\d$', '^v\d+.\d+.\d+-rc\d$']
     labels:
       allow: ['regression ⚠️']
     feedback:
