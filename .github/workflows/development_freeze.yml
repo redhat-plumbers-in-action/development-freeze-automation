@@ -36,7 +36,7 @@ jobs:
           fetch-depth: 0
 
       - name: Development Freezer
-        uses: redhat-plumbers-in-action/devel-freezer@main
+        uses: jamacku/devel-freezer@main
         with:
           pr-number: ${{ fromJSON(steps.Artifact.outputs.pr-metadata-json).number }}
           delay: 20
