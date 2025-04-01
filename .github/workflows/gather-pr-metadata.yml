@@ -22,7 +22,7 @@ jobs:
 
       - id: Metadata
         name: Gather Pull Request Metadata
-        uses: redhat-plumbers-in-action/gather-pull-request-metadata@v1
+        uses: jamacku/gather-pull-request-metadata@main
 
       - name: Upload Pull Request Metadata artifact
         uses: actions/upload-artifact@v4
