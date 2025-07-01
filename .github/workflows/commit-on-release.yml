@@ -26,7 +26,7 @@ jobs:
         run: echo ${{github.ref_name}} >> CHANGELOG
 
       - name: Create commit with CHAnGELOG changes
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v6
         with:
           branch: main
           commit_message: Update `CHANGELOG` - `${{github.ref_name}}`
